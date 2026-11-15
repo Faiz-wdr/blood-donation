@@ -1,16 +1,16 @@
 import HeroSection from '../components/sections/HeroSection';
-import AboutSection from '../components/sections/AboutSection';
 import BloodDonorCountsSection from '../components/sections/BloodDonorCountsSection';
+import AboutSection from '../components/sections/AboutSection';
 import BecomeDonorSection from '../components/sections/BecomeDonorSection';
 import useSEO from '../hooks/useSEO';
 
 /**
  * HomePage Component:
- * Strict 4 Sections:
- * 1. Hero
- * 2. About
- * 3. Blood Donor Counts
- * 4. Become a Donor (Banner with CTA to /register)
+ * Reordered Sections:
+ * 1. Hero Section
+ * 2. Blood Donor Counts Section
+ * 3. About Section
+ * 4. Become a Donor Section (Banner with CTA to /register)
  */
 export default function HomePage() {
   useSEO({
@@ -23,8 +23,8 @@ export default function HomePage() {
   return (
     <div className="flex-1">
       <HeroSection />
-      <AboutSection />
       <BloodDonorCountsSection />
+      <AboutSection />
       <BecomeDonorSection />
     </div>
   );
