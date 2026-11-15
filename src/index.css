@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-red: #D92735;
+  --color-primary-red-hover: #B81E2B;
+  --color-primary-dark: #151515;
+  --color-light-gray: #F5F5F5;
+  --color-border-subtle: #EAEAEA;
+  --color-text-muted: #666666;
+  --font-sans: 'Geist', 'Manjari', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-malayalam: 'Manjari', sans-serif;
+}
+
+.font-malayalam {
+  font-family: 'Manjari', sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: #151515;
+    background-color: #FFFFFF;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #FFFFFF;
+    color: #151515;
+  }
+
+  input, select, textarea, button {
+    font-family: inherit;
+  }
+
+  select {
+    accent-color: #D92735;
+  }
+
+  select option {
+    background-color: #FFFFFF;
+    color: #151515;
+    padding: 8px 12px;
+  }
+
+  select option:checked {
+    background-color: #D92735;
+    color: #FFFFFF;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pinBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes pinPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(0.65);
+    opacity: 0.15;
+  }
+}
+
+.animate-pin-bounce {
+  animation: pinBounce 2.4s ease-in-out infinite;
+}
+
+.animate-pin-bounce-delay-1 {
+  animation: pinBounce 2.7s ease-in-out 0.4s infinite;
+}
+
+.animate-pin-bounce-delay-2 {
+  animation: pinBounce 2.5s ease-in-out 0.9s infinite;
+}
+
+.animate-pin-bounce-delay-3 {
+  animation: pinBounce 2.8s ease-in-out 1.3s infinite;
+}
+
+.animate-pin-pulse {
+  animation: pinPulse 2.4s ease-in-out infinite;
+}
+
+.animate-pin-pulse-delay-1 {
+  animation: pinPulse 2.7s ease-in-out 0.4s infinite;
+}
+
+.animate-pin-pulse-delay-2 {
+  animation: pinPulse 2.5s ease-in-out 0.9s infinite;
+}
+
+.animate-pin-pulse-delay-3 {
+  animation: pinPulse 2.8s ease-in-out 1.3s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+}
