@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAdmin } from '../../hooks/useAdmin.jsx';
 import Button from '../../components/ui/Button';
+import useSEO from '../../hooks/useSEO';
 
 /**
  * AdminLoginPage Component:
@@ -9,6 +10,12 @@ import Button from '../../components/ui/Button';
  * Authorizes user against the secure `admin_users` table before granting access.
  */
 export default function AdminLoginPage() {
+  useSEO({
+    title: 'Admin Portal Login — Blood Connect Kerala',
+    description: 'Secure administrative access for Blood Connect Kerala donor network management.',
+    noindex: true,
+  });
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);

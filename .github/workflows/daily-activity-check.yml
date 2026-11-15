@@ -1,0 +1,52 @@
+name: Supabase Daily Activity Check
+
+on:
+  schedule:
+    # Runs daily at 05:00 UTC (10:30 AM IST)
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    # Allows manual trigger anytime from GitHub Actions tab for testing
+
+jobs:
+  activity-check:
+    name: Ping Supabase Database Activity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Trigger Daily Activity Check Edge Function
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_ACTIVITY_CHECK_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$CRON_SECRET" ]; then
+            echo "ERROR: Required GitHub repository secrets are missing."
+            echo "Please configure the following under Settings -> Secrets and variables -> Actions:"
+            echo "  - SUPABASE_ACTIVITY_CHECK_URL (e.g. https://<project-ref>.supabase.co/functions/v1/daily-activity-check)"
+            echo "  - CRON_SECRET (Pre-shared random secret string matching Supabase function secret)"
+            exit 1
+          fi
+
+          echo "Initiating silent daily activity check..."
+          
+          # Execute HTTP request to Edge Function with 30s timeout and output HTTP status code
+          HTTP_RESPONSE=$(curl -s -S -w "\nHTTP_STATUS:%{http_code}" \
+            -X POST "$SUPABASE_URL" \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            -H "Content-Type: application/json" \
+            --max-time 30)
+
+          BODY=$(echo "$HTTP_RESPONSE" | sed -e '$d')
+          STATUS=$(echo "$HTTP_RESPONSE" | tail -n 1 | cut -d':' -f2)
+
+          echo "Response Body: $BODY"
+          echo "HTTP Status: $STATUS"
+
+          if [ "$STATUS" -eq 200 ]; then
+            echo "Success: Supabase database activity check executed successfully."
+            exit 0
+          else
+            echo "Error: Edge Function returned HTTP $STATUS."
+            exit 1
+          fi
+

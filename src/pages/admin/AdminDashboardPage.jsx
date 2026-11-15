@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchAdminDashboardStats, fetchRecentDonors } from '../../services/adminService';
 import { BLOOD_GROUPS } from '../../data/bloodGroups';
 import LoaderOne from '../../components/ui/loader-one';
+import useSEO from '../../hooks/useSEO';
 
 /**
  * AdminDashboardPage:
@@ -10,6 +11,12 @@ import LoaderOne from '../../components/ui/loader-one';
  * and the latest 5 donor registrations.
  */
 export default function AdminDashboardPage() {
+  useSEO({
+    title: 'Dashboard — Admin Portal | Blood Connect Kerala',
+    description: 'Admin dashboard overview for Blood Connect Kerala.',
+    noindex: true,
+  });
+
   const [stats, setStats] = useState({
     total: 0,
     verified: 0,

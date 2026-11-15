@@ -3,6 +3,7 @@ import DonorRegistrationForm from '../components/donor-form/DonorRegistrationFor
 import BloodGroupCard from '../components/ui/BloodGroupCard';
 import { useDonorCounts } from '../hooks/useDonorCounts';
 import { STANDARD_BLOOD_GROUPS } from '../data/bloodGroups';
+import useSEO from '../hooks/useSEO';
 
 /**
  * RegisterPage Component:
@@ -11,6 +12,13 @@ import { STANDARD_BLOOD_GROUPS } from '../data/bloodGroups';
  * Displays live compact donor counts by blood group below the registration form.
  */
 export default function RegisterPage() {
+  useSEO({
+    title: 'Register as a Voluntary Blood Donor in Kerala — Blood Connect Kerala',
+    description:
+      'Sign up as a voluntary blood donor in Kerala. Help save lives during medical emergencies in your district. Free registration, verified community registry.',
+    canonical: '/register',
+  });
+
   const { counts, loading } = useDonorCounts();
 
   const standardCounts = counts.filter((item) =>

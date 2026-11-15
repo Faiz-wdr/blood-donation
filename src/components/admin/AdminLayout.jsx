@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import AdminSidebar from './AdminSidebar';
+import useSEO from '../../hooks/useSEO';
 
 /**
  * Minimal Admin Layout:
@@ -7,6 +8,12 @@ import AdminSidebar from './AdminSidebar';
  * comfortable content container width with consistent spacing.
  */
 export default function AdminLayout() {
+  useSEO({
+    title: 'Admin Management Portal — Blood Connect Kerala',
+    description: 'Internal administration dashboard and donor management for Blood Connect Kerala.',
+    noindex: true,
+  });
+
   return (
     <div className="min-h-screen bg-[#FAFAFA] flex flex-col md:flex-row text-[#151515] font-sans">
       <AdminSidebar />

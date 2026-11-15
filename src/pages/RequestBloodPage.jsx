@@ -1,11 +1,19 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import BloodRequestForm from '../components/blood-request/BloodRequestForm';
+import useSEO from '../hooks/useSEO';
 
 /**
  * RequestBloodPage Component:
  * Dedicated route (/request-blood) for submitting emergency blood requests to Supabase.
  */
 export default function RequestBloodPage() {
+  useSEO({
+    title: 'Emergency Blood Request — Blood Connect Kerala',
+    description:
+      'Submit an urgent blood request for hospital patients across Kerala. Rapidly connect with voluntary donors in Ernakulam, Kozhikode, Trivandrum, and all 14 districts.',
+    canonical: '/request-blood',
+  });
+
   const [searchParams] = useSearchParams();
   const initialBloodGroup = searchParams.get('group') || '';
   const initialDistrict = searchParams.get('district') || '';

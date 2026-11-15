@@ -7,6 +7,7 @@ import { KERALA_DISTRICTS } from '../../data/districts';
 import DonorDetailModal from '../../components/admin/DonorDetailModal';
 import CustomSelect from '../../components/ui/CustomSelect';
 import LoaderOne from '../../components/ui/loader-one';
+import useSEO from '../../hooks/useSEO';
 
 /**
  * AdminDonorsPage:
@@ -14,6 +15,12 @@ import LoaderOne from '../../components/ui/loader-one';
  * pagination, inline status actions, edit/delete icon buttons, and single export popup.
  */
 export default function AdminDonorsPage() {
+  useSEO({
+    title: 'Donors Management — Admin Portal | Blood Connect Kerala',
+    description: 'Admin donor registry management for Blood Connect Kerala.',
+    noindex: true,
+  });
+
   const [donors, setDonors] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [totalPages, setTotalPages] = useState(1);

@@ -5,6 +5,7 @@ import CustomSelect from '../components/ui/CustomSelect';
 import { useDonorCounts } from '../hooks/useDonorCounts';
 import { KERALA_DISTRICTS } from '../data/districts';
 import { STANDARD_BLOOD_GROUPS, RARE_BLOOD_GROUPS } from '../data/bloodGroups';
+import useSEO from '../hooks/useSEO';
 
 /**
  * AllDonorsPage Component:
@@ -15,8 +16,14 @@ export default function AllDonorsPage() {
   const [selectedDistrict, setSelectedDistrict] = useState('');
   const { counts, loading } = useDonorCounts(selectedDistrict || null);
 
+  useSEO({
+    title: 'All Blood Groups & Donors Directory — Blood Connect Kerala',
+    description:
+      'Search verified voluntary blood donors across Kerala by blood group and district. Standard types (A+, B+, O+, AB+) and rare groups (Bombay Blood Group, Rh-null, INRA).',
+    canonical: '/all-donors',
+  });
+
   useEffect(() => {
-    document.title = 'All Blood Groups & Verified Donors | Blood Connect Kerala';
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 

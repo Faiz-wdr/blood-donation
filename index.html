@@ -2,14 +2,119 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blood Connect Kerala — Voluntary Blood Donor Network</title>
-    <meta name="description" content="Connecting voluntary blood donors with people who need blood across Kerala." />
+    <title>Blood Connect Kerala — Voluntary Blood Donors Network</title>
+    <meta
+      name="description"
+      content="Connect with verified voluntary blood donors across Kerala. Free emergency blood donor network supporting rare and standard blood groups in all 14 districts."
+    />
+    <meta
+      name="keywords"
+      content="Blood Donors in Kerala, Blood Donation Kerala, Emergency Blood Donors Kerala, Rare Blood Groups Kerala, Voluntary Blood Donors, Blood Bank Kerala, Ernakulam Blood Donors, Kozhikode Blood Donors, Thiruvananthapuram Blood Donors, Malappuram Blood Donors, Kannur Blood Donors"
+    />
+    <meta name="author" content="Blood Connect Kerala" />
+    <meta name="theme-color" content="#D92735" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bloodconnectkerala.org/" />
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Search Console Verification Placeholder -->
+    <meta
+      name="google-site-verification"
+      content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_TOKEN"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Blood Connect Kerala" />
+    <meta
+      property="og:title"
+      content="Blood Connect Kerala — Voluntary Blood Donors Network"
+    />
+    <meta
+      property="og:description"
+      content="Connecting voluntary blood donors with patients across all 14 districts of Kerala. Free, community-driven emergency blood donor registry."
+    />
+    <meta property="og:url" content="https://bloodconnectkerala.org/" />
+    <meta property="og:image" content="https://bloodconnectkerala.org/favicon.svg" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:locale:alternate" content="ml_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Blood Connect Kerala — Voluntary Blood Donors Network"
+    />
+    <meta
+      name="twitter:description"
+      content="Connecting voluntary blood donors with patients across all 14 districts of Kerala. Free, community-driven emergency blood donor registry."
+    />
+    <meta name="twitter:image" content="https://bloodconnectkerala.org/favicon.svg" />
+
+    <!-- Structured Data: Organization & WebSite Schemas (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["NGO", "Organization"],
+            "@id": "https://bloodconnectkerala.org/#organization",
+            "name": "Blood Connect Kerala",
+            "alternateName": "ബ്ലഡ് കണക്ട് കേരള",
+            "url": "https://bloodconnectkerala.org/",
+            "logo": "https://bloodconnectkerala.org/favicon.svg",
+            "image": "https://bloodconnectkerala.org/favicon.svg",
+            "description": "Voluntary citizen initiative connecting voluntary blood donors with patients in urgent need across all 14 districts of Kerala.",
+            "areaServed": {
+              "@type": "AdministrativeArea",
+              "name": "Kerala, India"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-9037305478",
+              "contactType": "Emergency Blood Donation Helpline",
+              "areaServed": "IN-KL",
+              "availableLanguage": ["Malayalam", "English"]
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://bloodconnectkerala.org/#website",
+            "url": "https://bloodconnectkerala.org/",
+            "name": "Blood Connect Kerala",
+            "alternateName": "Kerala Blood Donor Registry",
+            "publisher": {
+              "@id": "https://bloodconnectkerala.org/#organization"
+            },
+            "inLanguage": ["en-IN", "ml-IN"],
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://bloodconnectkerala.org/all-donors?district={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
+      }
+    </script>
+
     <!-- Google Fonts: Geist & Manjari for Malayalam -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Manjari:wght@400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Manjari:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-white text-[#151515] antialiased selection:bg-[#D92735] selection:text-white">
     <div id="root"></div>
